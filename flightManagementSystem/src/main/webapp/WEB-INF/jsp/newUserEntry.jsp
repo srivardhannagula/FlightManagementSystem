@@ -44,13 +44,14 @@ body{
             align-items: center; 
             background: url(https://wallpapercave.com/wp/wp4128800.jpg) no-repeat center center fixed;
             background-size: cover;
+            
   
 }
 .container{
   width: 400px;
             text-align: center;
             vertical-align:center;
-            background-color: rgba(255, 255, 255, 0.8); 
+            background-color: rgba(255, 255, 255, 0.7); 
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -73,18 +74,18 @@ button{
 <body>
  
   <div class="container">
-        <h1>Flight Management  System</h1>
+        <h1><b>Flight Management  System</b></h1>
         <h3>Register Here</h3>
         <form:form id="registrationForm" action="/register" method="post" modelAttribute="userRecord">
         <table><tr>
-         <td>   Enter New User Id: </td><td><form:input path="username" required="required"/> </td></tr>
-            <tr><td>Select User's Type:</td>  <td><form:select path="type" id="select">
+         <td>   <b>Enter New User Id: </b></td><td><form:input path="username" required="required"/> </td></tr>
+            <tr><td><b>Select User's Type:</b></td>  <td><form:select path="type" id="select">
                 <form:option value="Customer">Customer</form:option>
                 <form:option value="Admin">Admin</form:option>
             </form:select></td></tr>
             
-         <tr><td>   Enter New Password:</td><td> <form:input type="password" id="pass1" path="password" required="required"/></td></tr>
-         <tr><td>   Re-type New Password:</td><td><input type="password" id="pass2" path="password" required="required"/> </td> 
+         <tr><td>  <b> Enter New Password:</b></td><td> <form:input type="password" id="pass1" path="password" required="required"/></td></tr>
+         <tr><td>  <b>Re-type New Password:</b></td><td><input type="password" id="pass2" path="password" required="required"/> </td> 
             </table>  <br/><br>
             <button type="button" onclick="passwordCheck()">Submit</button>
             <br/><br>

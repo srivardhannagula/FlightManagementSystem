@@ -32,7 +32,7 @@ public class RouteDaoImpl implements RouteDao {
 	}
 
 	@Override
-	public Long findRouteBySourceAndDestination(String source, String destination) {
+	public Route findRouteBySourceAndDestination(String source, String destination) {
 		 
 		return routerepo.findRouteBySourceAndDestination(source, destination);
 	}

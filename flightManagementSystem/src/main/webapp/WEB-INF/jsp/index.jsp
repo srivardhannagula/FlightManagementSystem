@@ -71,7 +71,7 @@ font-size:1.5em;
                 <option value="/airport">Airport Entry</option>
                <!--   <option value="/showAirport">Airport Location</option> -->
                 <option value="/showAllAirports">All Airport Details</option>
-                 <option value="/showAllAirportCodes">All Airport Codes</option>
+               <!--   <option value="/showAllAirportCodes">All Airport Codes</option>-->
             </select>
         </li>
     <li class="select-container">
@@ -86,6 +86,13 @@ font-size:1.5em;
                 <option value="">Flight</option>
                 <option value="/flight"> Add Flights</option>
                 <option value="/showAllAddedFlights">All Added Flights</option>
+            </select>
+        </li>
+    <li class="select-container">
+            <select id="routeselect" onchange="if (this.value) window.location.href=this.value;">
+                <option value="">BookFlight</option>
+                <option value="/availableflights">  Flights</option>
+                 
             </select>
         </li>
    

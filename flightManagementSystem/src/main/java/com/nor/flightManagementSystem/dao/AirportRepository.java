@@ -10,6 +10,8 @@ import com.nor.flightManagementSystem.bean.Airport;
 public interface AirportRepository extends JpaRepository<Airport, String> {
  @Query("select airportCode from Airport")
  public List<String> findAllAirportCodes();
+ @Query("select airportLocation from Airport")
+ public List<String> findAllAirportLocations();
 @Query("select airportCode from Airport where  airportLocation= ?1")
 public String findAirportCodeByLocation(String airportLocation);
 

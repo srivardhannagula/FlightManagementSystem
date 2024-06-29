@@ -47,6 +47,12 @@ public class AirportDaoImpl implements AirportDao {
 		// TODO Auto-generated method stub
 		return airportrepo.findById(id).get();
 	}
+
+	@Override
+	public List<String> findAllAirportLocations() {
+		// TODO Auto-generated method stub
+		return airportrepo.findAllAirportLocations();
+	}
 	 
 	 
 

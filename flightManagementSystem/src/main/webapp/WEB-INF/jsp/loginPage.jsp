@@ -24,35 +24,52 @@ body{
             background-size: cover;
   
 }
+h2{
+display:inline;}
 .rightalign{
 	float:right;
 	font-size:1rem;
 }
 .container{
-  width: 300px;
+  width: 400px;
             text-align: center;
             vertical-align:center;
-            background-color: rgba(255, 255, 255, 0.8);  
+            background-color: rgba(255, 255, 255, 0.6);  
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+ button {
+        width: 60%;
+        padding: 10px;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
 </style>
 </head>
 <body>
  
   <div class="container">
-    <header><b>Flight Management System</b> <a href="/register">SignIn</a></header>
+    <header><h2><b>Flight Management System</b></h2> <a href="/register">SignIn</a></header>
     <br>
     <br>
     
 
     <form:form action="/login" method="post" modelAttribute="userRecord">
     	 
-        <label for="username">Username:</label>
+        <label for="username"><b>Username:</b></label>
         <input type="text" id="username" name="username" required><br>
         <br><br>
-    <label for="password">Password:</label>
+    <label for="password"><b>Password:</b></label>
         <input type="password" id="password" name="password" required>
 	<br><br>
         <button type="submit">Login</button>

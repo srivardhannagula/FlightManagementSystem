@@ -14,5 +14,6 @@ public Airport saveAirport(Airport airport);
 public List<Airport> findAllAirports();
 public Airport findAirportById(String id);
 public List<String> findAllAirportCodes();
+public List<String> findAllAirportLocations();
 public String findAirportCodeByLocation(String AirportLocation);
 }

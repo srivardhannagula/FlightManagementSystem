@@ -10,11 +10,13 @@ public class Flight {
 	private String carrierName;
 	private Long routeId;
 	private Integer seatCapacity;
+	//private Integer seatAvailable;
 	private String departure;
 	private String arrival;
+	private Integer seatBooked;
 	public Flight() {
 		super();
-		// TODO Auto-generated constructor stub
+	 
 	}
 	
 	public Flight(Long flightNumber, String carrierName, Long routeId, Integer seatCapacity, String departure,
@@ -26,6 +28,7 @@ public class Flight {
 		this.seatCapacity = seatCapacity;
 		this.departure = departure;
 		this.arrival = arrival;
+		this.seatBooked=0;
 	}
 
 	public Long getFlightNumber() {
@@ -65,6 +68,14 @@ public class Flight {
 		this.arrival = arrival;
 	}
 
+	public Integer getSeatBooked() {
+		return seatBooked;
+	}
+
+	public void setSeatBooked(Integer seatBooked) {
+		this.seatBooked = seatBooked;
+	}
+	
 	@Override
 	public String toString() {
 		return "Flight [flightNumber=" + flightNumber + ", carrierName=" + carrierName + ", routeId=" + routeId

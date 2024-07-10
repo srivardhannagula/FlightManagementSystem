@@ -1,34 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style>
+<title>Your Ticket</title>
+ <style>
         body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            height: 100vh;
+            width:100vw;
+            display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center; 
             background: url(https://wallpapercave.com/wp/wp4128800.jpg) no-repeat center center fixed;
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
-      
-    color: #fff;
+             color: #fff;
     text-shadow: 2px 2px 4px #000;
-             
         }
-        h2,h3 {
+        h1,h3 {
             text-align: center;
         }
         table {
             width: 80%;
+            text:bold;
             margin: 20px auto;
             border-collapse: collapse;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
         }
         table th, table td {
             padding: 10px;
@@ -45,51 +49,50 @@
             text-align: center;
             margin-top: 20px;
             color: white;
+            
         }
-        h1 {
-        text-align:center;
-        margin-top: 20px;
-        font-size: 36px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    }
-    h3 {
-        margin-top: 20px;
-        font-size: 24px;
-    }
+         h1,h3 {
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+.container{ 
+ width: 80%;
+ text-align: center;
+ padding:25px;
+  background-color: rgba(256, 256, 256, 0.5);
+}
      </style>
 </head>
-
 <body>
-<h1>${fromAirport}   -------------------    ${toAirport}</h2>
-<h3>${fair}</h3>
+<div class="container"> 
+<table>
+ 
+<h1>Ticket</h1>
+<tr><td>Ticket Number: ${ticketNum}</td><td>Carrier Name: ${carrierName}</td><td>Flight Number: ${flightNum}</td></tr>
+<tr><td>From City: ${fromLoc}</td><td>To City: ${toLoc}</td><td>Ticket Status: Conformed</td></tr></table>
+<h3>Passenger Data </h3>
 <table border="1">
         <thead>
             <tr>
-                <th>Flight_Number</th>
-                <th>Carrier_Name</th>
-                 <th>Route_Id</th>
-                <th>Seat_Capacity</th>
-                 <th>Departure</th>
-                 <th>Arrival</th>
-                 <th>Book Flight</th>
-                
+                <th><b>Passenger_Name</b></th>
+                <th><b>Passenger_DOB</b></th>
+                <th><b>Fare</b></th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${flightList}" var="data">
+            <c:forEach items="${passengerData}" var="data">
                 <tr>
-                    <td>${data.flightNumber}</td>
-                    <td>${data.carrierName}</td>
-                    <td>${data.routeId}</td>
-                    <td>${data.seatCapacity}</td>
-                    <td>${data.departure}</td>
-                   <td>${data.arrival}</td>
-                    <td><b><a href="/ticket/${data.flightNumber}">BookFlight</a></b></td>
-                   
+                    <td><b>${data.passengerName}</b></td>
+                    <td><b>${data.passengerDOB}</b></td>
+                   	<td><b>${data.fare}</b></td>
                 </tr>
             </c:forEach>
+           <tr><td></td> <td>Total</td><td><b>${totalfare}</b></td></tr>
         </tbody>
     </table>
-    <h3> <a href="/index">Back to Home</a></h3>
+      <a href="/index">BackToHome</a> 
+      </div>
 </body>
 </html>

@@ -85,6 +85,7 @@
  <button type="submit">Add</button>
 </form:form>
  
-<a href="index">Back to home</a></div>
+<a href="index">Back to home</a>
+</div>
 </body>
 </html>

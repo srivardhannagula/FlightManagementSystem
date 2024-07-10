@@ -36,16 +36,26 @@ function passwordCheck(){
 }
 body{
     margin: 0;
-            padding: 0;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;  
-            align-items: center; 
-            background: url(https://wallpapercave.com/wp/wp4128800.jpg) no-repeat center center fixed;
-            background-size: cover;
-            
-  
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center; 
+    background: url(https://wallpapercave.com/wp/wp4128800.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+h1 {
+    margin: 0;
+    margin-bottom:50px;
+    padding: 20px 0;
+    color: #fff;
+    font-size:3rem;
+    text-shadow: 2px 2px 4px #000;
+}
+h2 {
+    display: inline;
 }
 .container{
   width: 400px;
@@ -69,13 +79,15 @@ button{
         font-size: 16px;}
   table{
   margin-left:50px;}
+  
 </style>
 </head>
 <body>
- 
+ <h1><b> <u>WelCome To Flight Management System</u></b></h1>
   <div class="container">
-        <h1><b>Flight Management  System</b></h1>
-        <h3>Register Here</h3>
+         
+        <h2>Register Here</h2>
+        <br/><br>
         <form:form id="registrationForm" action="/register" method="post" modelAttribute="userRecord">
         <table><tr>
          <td>   <b>Enter New User Id: </b></td><td><form:input path="username" required="required"/> </td></tr>
@@ -92,7 +104,7 @@ button{
             <button type="reset">Reset</button>
             <br/><br>
         </form:form>
-        <a href="/loginpage">Back to Login</a>
+        <a href="/loginpage">Have an account?</a>
     </div> 
 </body>
 </html>

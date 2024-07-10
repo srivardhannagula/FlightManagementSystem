@@ -50,12 +50,13 @@
     <table border="1">
         <thead>
             <tr>
-                <th>flight_number</th>
-                <th>carrier_name</th>
-                 <th>route_Id</th>
-                <th>seat_capacity</th>
-                 <th>departure</th>
-                 <th>arrival</th>
+                <th>Flight_Number</th>
+                <th>Carrier_Name</th>
+                 <th>Route_Id</th>
+                <th>Seat_Capacity</th>
+                 <th>Departure</th>
+                 <th>Arrival</th>
+                 <th>Seat Available</th>
                 
             </tr>
         </thead>
@@ -68,9 +69,10 @@
                     <td>${data.seatCapacity}</td>
                     <td>${data.departure}</td>
                    <td>${data.arrival}</td>
-                    
-                   
-                </tr>
+                    <c:set var="seatAvailable" scope="session" value="${data.seatCapacity-data.seatBooked}"/>
+                   <td>${seatAvailable}</td>
+                   </tr>
+                
             </c:forEach>
         </tbody>
     </table>

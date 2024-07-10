@@ -97,10 +97,11 @@
   <form:input path="departure" required="required"/> </td></tr>
   <tr><td> Enter the arrival Time:</td><td>
   <form:input path="arrival" required="required"/> </td></tr>
+  <form:hidden path="seatBooked" value="0"/>
   <tr><td> Enter Return Flight Departure  Time:</td><td>
-  <input type="text" name="dtime"/> </td></tr>
+  <input   name="dtime"/> </td></tr>
   <tr><td> Enter Return Flight Arrival  Time:</td><td>
-  <input type="text" name="atime"/> </td></tr>
+  <input  name="atime"/> </td></tr>
   
   </table>
   <button type="submit">Submit</button>

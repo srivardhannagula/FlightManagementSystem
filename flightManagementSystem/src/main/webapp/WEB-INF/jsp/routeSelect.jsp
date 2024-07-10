@@ -80,7 +80,8 @@
         </select></td></tr></table>
          <br>
         <br>
-        <button type="submit">Submit</button><br><br>
+        <button type="submit">Submit</button>
+        <br><br>
         <a href="index">Back to home</a></div>
     </form>
  

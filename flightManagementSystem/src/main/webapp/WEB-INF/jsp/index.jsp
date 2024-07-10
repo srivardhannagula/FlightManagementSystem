@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>WelcometoFlightManegementSystem</title>
 <style> 
 body{
     margin: 0;
@@ -14,12 +14,16 @@ body{
      height: 100%;
      background: url(https://wallpapercave.com/wp/wp4128800.jpg) no-repeat center center fixed;
   background-size: cover;
-  
+  font-family: 'Arial', sans-serif;
+    color: #fff;
 }
  .container{
  text-align:center;
 padding-top:20px;
 font-size:1.5em;
+ padding: 20px 0;
+    color: #fff;
+text-shadow: 2px 2px 4px #000;
  }
  nav{
  font-size:1.5em;
@@ -55,7 +59,12 @@ font-size:1.5em;
     color: white;
     
 }
- 
+ h1 {
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
 </style>
 </head>
 <body>

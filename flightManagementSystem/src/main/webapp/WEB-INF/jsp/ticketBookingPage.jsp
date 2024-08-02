@@ -81,6 +81,22 @@
     a:hover {
         text-decoration: underline;
     }
+       a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+    
 </style>
  
 </head>
@@ -125,6 +141,7 @@
          </tr>  
          </table>
           <button type="submit">Submit</button> <br>
+           <a href="/index" class="button">cancel ticket</a>
            <a href="/index">Back to Login</a>
         </form:form>
         

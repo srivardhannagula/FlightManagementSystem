@@ -1,5 +1,4 @@
 package com.nor.flightManagementSystem.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,10 +25,14 @@ public class FlightUserService implements UserDetailsService {
 	        return type;
 	    }
 
+	     
+	    
+
 	    @Override
 	    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	        FlightUser user = repository.findById(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+	    	FlightUser user= repository.findById(username).get();//orElseThrow(() -> new UsernameNotFoundException("User not found"));
 	        type = user.getType();
+	        System.out.println(type);
 	        return user;
 	    }
 	    

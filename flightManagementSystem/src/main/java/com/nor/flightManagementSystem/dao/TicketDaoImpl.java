@@ -1,5 +1,7 @@
 package com.nor.flightManagementSystem.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,18 @@ public class TicketDaoImpl implements TicketDao {
 			 val=val+1;
 		 }
 		return val;
+	}
+
+	@Override
+	public List<Ticket> getAllTickets() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+	@Override
+	public Ticket findTicketByTicketNumber(Long ticketNumber) {
+		// TODO Auto-generated method stub
+		return repository.getById(ticketNumber);
 	}
 
 }

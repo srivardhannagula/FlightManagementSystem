@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -127,5 +128,21 @@ public class TicketController {
 		mv.addObject("errorMessage", message);
 		return mv;
 	}
+	@GetMapping("/viewBooking")
+	public ModelAndView showTicketBooking( ) {
+		 ModelAndView mv=new ModelAndView("viewBooking");
+	
+		return mv;
+	}
+	 
+    @PostMapping("/viewBooking")
+    public ModelAndView viewBooking(@RequestParam("ticketNumber") Long ticketNumber) {
+    	 
+        Ticket ticket = ticketDao.findTicketByTicketNumber(ticketNumber);
+       ModelAndView mv = new ModelAndView("viewTicket");
+        mv.addObject("ticket", ticket);
+        //mv.addObject("passengers", passengerDao.findByTicketNumber(ticketNumber));
+        return mv;
+    }
 	
 }

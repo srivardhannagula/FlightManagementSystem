@@ -45,15 +45,28 @@ public class LoginController {
 	    public ModelAndView showLoginPage() {
 	        return new ModelAndView("loginPage");
 	    }
-	    @GetMapping("/index")
-	    public ModelAndView showindexPage() {
-	    	return new ModelAndView("index");
-	    }
+//	    @GetMapping("/index")
+//	    public ModelAndView showindexPage() {
+//	    	return new ModelAndView("index");
+//	    }
 	    @GetMapping("/loginerror")
 	    public ModelAndView showLoginErrorPage() {
 	        return new ModelAndView("loginError");
 	    }
-	   
+	    @GetMapping("/index")
+	    public ModelAndView showindexPage() {
+	    	String indexPage="";
+	    	String userType=service.getType();
+	    	System.out.println(userType);
+	    	
+	    	if(userType.equalsIgnoreCase("Admin")) {
+	    		indexPage="index1";
+	    	}
+	    	else if(userType.equalsIgnoreCase("Customer")) {
+	    		indexPage="index2";
+	    	}
+	    	return new ModelAndView(indexPage);
+	    }
 	   
 	  
 	    

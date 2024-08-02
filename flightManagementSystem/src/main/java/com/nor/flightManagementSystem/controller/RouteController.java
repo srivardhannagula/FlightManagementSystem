@@ -49,7 +49,7 @@ public class RouteController {
 		Route route1=routeservice.createReturnRoute(route);
 		routedao.saveRoute(route);
 		routedao.saveRoute(route1);
-		return new ModelAndView("index");
+		return new ModelAndView("redirect:/index");
 	}
 	@GetMapping("/showroutes")
 	public ModelAndView showAllRoutes() {

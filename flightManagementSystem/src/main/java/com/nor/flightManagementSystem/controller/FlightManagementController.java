@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.nor.flightManagementSystem.bean.Airport;
 import com.nor.flightManagementSystem.bean.Flight;
+import com.nor.flightManagementSystem.bean.Passenger;
+import com.nor.flightManagementSystem.bean.Ticket;
 import com.nor.flightManagementSystem.dao.AirportDao;
 import com.nor.flightManagementSystem.dao.AirportRepository;
 import com.nor.flightManagementSystem.dao.FlightDao;
+import com.nor.flightManagementSystem.dao.PassengerDao;
 import com.nor.flightManagementSystem.dao.RouteDao;
+import com.nor.flightManagementSystem.dao.TicketDao;
 import com.nor.flightManagementSystem.service.FlightService;
  
 
@@ -32,6 +36,11 @@ public class FlightManagementController {
 	 private RouteDao routeDao;
 	 @Autowired
 	 private FlightService flightService;
+	 @Autowired
+	 private PassengerDao passengerDao;
+	 @Autowired
+	 private TicketDao ticketDao;
+	 
 	 @GetMapping("/airport")
 	 public ModelAndView showAddAirports() {
 		 Airport airport=new Airport();
@@ -47,7 +56,7 @@ public class FlightManagementController {
     airport.setAirportLocation(stg);
 		 airportdao.saveAirport(airport);
 		 //airportrepo.save(airport);
-		 return new ModelAndView("index");
+		 return new ModelAndView("redirect:/index");
 	 }
 	 @GetMapping("showAllAirports")
 	 public ModelAndView showAllAirports() {
@@ -98,7 +107,7 @@ public class FlightManagementController {
 		 
 		 flightdao.save(flight);
 		 flightdao.save(flight2);
-		 return new ModelAndView("index");
+		 return new ModelAndView("redirect:/index");
 	 }
 	 @GetMapping("/showAllAddedFlights")
 	 public ModelAndView  showAllFlights() {
@@ -106,6 +115,22 @@ public class FlightManagementController {
 		 List<Flight> flights=flightdao.findAllFlights();
 		 ModelAndView mv=new ModelAndView("showAllAddedFlights");
 		 mv.addObject("flightdetails", flights);
+		 return mv;
+	 }
+	 @GetMapping("/passengerInfo")
+	 public ModelAndView  showAllPassengers() {
+		
+		 List<Passenger> passengers=passengerDao.getAllPassengers();
+		 ModelAndView mv=new ModelAndView("PassengerInfo");
+		 mv.addObject("passengerInfo",passengers);
+		 return mv;
+	 }
+	 @GetMapping("/ticketInfo")
+	 public ModelAndView  showAllTickets() {
+		
+		 List<Ticket> tickets=ticketDao.getAllTickets();
+		 ModelAndView mv=new ModelAndView("Ticket");
+		 mv.addObject("ticketInfo",tickets);
 		 return mv;
 	 }
 	 

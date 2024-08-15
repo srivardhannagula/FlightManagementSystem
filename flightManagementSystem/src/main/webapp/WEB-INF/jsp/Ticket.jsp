@@ -46,7 +46,7 @@
      </style>
 </head>
 <body>
-<h2>Ticket Information</h2>
+<!<h2>Ticket Information</h2>
 <table border="1">
         <thead>
             <tr>

@@ -42,4 +42,17 @@ public class TicketDaoImpl implements TicketDao {
 		return repository.getById(ticketNumber);
 	}
 
+	@Override
+	public void deleteByTicketNumber(Long ticketNumber) {
+		// TODO Auto-generated method stub
+		repository.deleteById(ticketNumber);
+	}
+
+	//@Override
+//	public void deleteByTicketNumber(Long ticketNumber) {
+//		// TODO Auto-generated method stub
+//		repository.deleteByTicketNumber(ticketNumber);
+//		
+//	}
+
 }

@@ -134,15 +134,74 @@ public class TicketController {
 	
 		return mv;
 	}
-	 
+	@GetMapping("/showTicketsPage")
+	public ModelAndView showTicket( ) {
+		 ModelAndView mv=new ModelAndView("showTicketsPage");
+		 
+		return mv;
+	}
+	@PostMapping("/showTicketsPage")
+	public ModelAndView showPostTicket(@RequestParam("ticketNumber")Long ticketNumber) {
+		  
+		 
+		 Ticket ticketdd= ticketDao.findTicketByTicketNumber(ticketNumber);
+		 List<Passenger> passenger=passengerDao.findByTicketNumber(ticketNumber);
+		 List<Passenger>passengerList=new ArrayList<>();
+		 for(int i=0;i<passenger.size();i++) {
+			 Long ticket=passenger.get(i).getEmbeddedId().getTicketNumber();
+			 if((ticketNumber+"").equals(ticket+"")){
+				 passengerList.add(passenger.get(i));
+ 
+		 }
+		 }
+		 
+		 //System.out.println("hii");
+		 ModelAndView mv=new ModelAndView("showTicketPage");
+			mv.addObject("ticketNum",ticketdd.getTicketNumber());
+			mv.addObject("carrierName",ticketdd.getCarrierName());
+			mv.addObject("flightNum", ticketdd.getFlightNumber());
+			Flight flight=flightDao.findFlightById(ticketdd.getFlightNumber());
+			mv.addObject("fromLoc", flight.getDeparture());
+			mv.addObject("toLoc", flight.getArrival());
+			mv.addObject("totalfare", ticketdd.getTotalAmount());
+			mv.addObject("passengerData",passengerList);
+			return mv;
+	}
+	
     @PostMapping("/viewBooking")
     public ModelAndView viewBooking(@RequestParam("ticketNumber") Long ticketNumber) {
     	 
         Ticket ticket = ticketDao.findTicketByTicketNumber(ticketNumber);
-       ModelAndView mv = new ModelAndView("viewTicket");
+        ModelAndView mv = new ModelAndView("viewTicket");
         mv.addObject("ticket", ticket);
         //mv.addObject("passengers", passengerDao.findByTicketNumber(ticketNumber));
         return mv;
+    }
+    @GetMapping("/deleteTicket")
+    public ModelAndView deleteTicket(@RequestParam("ticketNumber") String ticketNumber,@RequestParam("flightNumber") String flightNumber) {
+    	System.out.println(ticketNumber);
+    	int count=0;
+    	Long flightNum=Long.parseLong(flightNumber);
+    	Long ticket=Long.parseLong(ticketNumber);
+    	List<Passenger> passenger=passengerDao.findByTicketNumber(ticket);
+    	for(int i=0;i<passenger.size();i++) {
+			 Long ticketNum=passenger.get(i).getEmbeddedId().getTicketNumber();
+			 if((ticketNumber+"").equals(ticketNum+"")){
+			passengerDao.deleteByTicketNumber(passenger.get(i).getEmbeddedId());
+			count++;
+		 }
+    	
+    	}
+    	System.out.println(count);
+    	//ticketDao.deleteByTicketNumber(ticket);
+    	ticketDao.deleteByTicketNumber(ticket);
+    	Flight flight=flightDao.findFlightById(flightNum);
+    	System.out.println(flight.getSeatBooked());
+    	flight.setSeatBooked(flight.getSeatBooked()-count);
+    	System.out.println(flight.getSeatBooked());
+    	flightDao.save(flight);
+    	ModelAndView mv=new ModelAndView("redirect:/index");
+        return mv;	
     }
 	
 }

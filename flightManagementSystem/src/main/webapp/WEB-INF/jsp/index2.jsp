@@ -113,7 +113,8 @@ text-shadow: 2px 2px 4px #000;
       <li class="select-container">
             <select id="view" onchange="if (this.value) window.location.href=this.value;">
                 <option value="">Tickets</option>
-                <option value="/showTicketPage">Ticket details</option>
+              <!--   <option value="/showTicketPage">Ticket details</option> --> 
+                <option value="/showTicketsPage">Get Detalis</option>
                <!--   <option value="/showAllAirportCodes">All Airport Codes</option>-->
             </select>
         </li>

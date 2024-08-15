@@ -65,11 +65,16 @@
 }
      </style>
 </head>
-<body>
+  <body>
+   
 <div class="container"> 
+ <form action="/deleteTicket" method="get">
+<input type="hidden" name="ticketNumber" value=${ticketNum}>
+<input type="hidden" name="flightNumber" value=${flightNum}> 
 <table>
  
 <h1>Ticket</h1>
+
 <tr><td>Ticket Number: ${ticketNum}</td><td>Carrier Name: ${carrierName}</td><td>Flight Number: ${flightNum}</td></tr>
 <tr><td>From City: ${fromLoc}</td><td>To City: ${toLoc}</td><td>Ticket Status: Conformed</td></tr></table>
 <h3>Passenger Data </h3>
@@ -93,6 +98,11 @@
         </tbody>
     </table>
       <a href="/index">BackToHome</a> 
+      <button type="submit">Cancel Ticket</button>
+          </form>
       </div>
+   
+     
 </body>
+ 
 </html>
